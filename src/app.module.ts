@@ -4,6 +4,7 @@ import { environmentConfig } from './config/environment.config';
 import { ENVIRONMENT } from './config/environment.enum';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { datasourceOptions } from './config/orm.config';
+import { SurveyModule } from './module/survey/survey.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { datasourceOptions } from './config/orm.config';
         autoLoadEntities: true,
       }),
     }),
+    SurveyModule,
   ],
   controllers: [],
   providers: [],
