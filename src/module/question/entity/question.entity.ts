@@ -2,10 +2,12 @@ import {
   Column,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn
 } from "typeorm";
 import { Survey } from "src/module/survey/entity/survey.entity";
 import { QuestionType } from "../enum/question-type.enum";
+import { Option } from "src/module/option/entity/option.entity";
 
 @Entity({ name: "question" })
 export class Question {
@@ -19,7 +21,12 @@ export class Question {
   type: QuestionType;
 
   @ManyToOne(() => Survey, s => s.questions, {
-    nullable: false
+    nullable: false,
   })
   survey: Survey;
+
+  @OneToMany(() => Option, o => o.question, {
+    cascade: true,
+  })
+  options: Option[];
 }
