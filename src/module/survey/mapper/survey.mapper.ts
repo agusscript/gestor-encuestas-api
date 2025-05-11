@@ -5,13 +5,13 @@ import { Survey } from "../entity/survey.entity";
 @Injectable()
 export class SurveyMapper {
   fromCreateDtoToEntity(
-    surveyDto: CreateSurveyDto,
+    createSurveyDto: CreateSurveyDto,
     participationId: string,
     resultId: string
   ): Survey {
     const survey = new Survey();
 
-    survey.title = surveyDto.title;
+    survey.title = createSurveyDto.title;
     survey.participationId = participationId;
     survey.resultId = resultId; 
 
