@@ -9,11 +9,12 @@ export class QuestionMapper {
     createQuestionDto: CreateQuestionDto,
     survey: Survey
   ): Question {
-    const { text, type } = createQuestionDto;
+    const { text, type, options } = createQuestionDto;
     const question = new Question();
 
     question.text = text;
     question.type = type;
+    question.options = options;
     question.survey = survey;
 
     return question;
