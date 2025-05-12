@@ -15,6 +15,7 @@ export class Question {
 
   @ManyToOne(() => Survey, s => s.questions, {
     nullable: false,
+    onDelete: "CASCADE",
   })
   survey: Survey;
 
