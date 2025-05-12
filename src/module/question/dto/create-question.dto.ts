@@ -1,4 +1,4 @@
-import { ArrayMinSize, IsArray, IsEnum, IsNotEmpty, IsString, MaxLength, MinLength, ValidateIf, ValidateNested } from "class-validator";
+import { ArrayMinSize, IsArray, IsEnum, IsNotEmpty, IsString, MaxLength, MinLength, ValidateIf } from "class-validator";
 import { QuestionType } from "../enum/question-type.enum";
 
 export class CreateQuestionDto {
@@ -14,9 +14,9 @@ export class CreateQuestionDto {
 
   @ValidateIf(o => o.type !== QuestionType.OPEN)
   @IsArray()
-  @ValidateNested({ each: true })
   @ArrayMinSize(1, {
     message: 'options must contain at least one option'
   })
+  @IsString({ each: true })
   options?: string[];
 }
