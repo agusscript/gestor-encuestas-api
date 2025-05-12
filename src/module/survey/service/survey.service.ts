@@ -4,7 +4,6 @@ import { Survey } from "../entity/survey.entity";
 import { SurveyMapper } from "../mapper/survey.mapper";
 import { CreateSurveyDto } from "../dto/create-survey.dto";
 import { QuestionService } from "src/module/question/service/question.service";
-import { v4 as uuid } from "uuid";
 
 @Injectable()
 export class SurveyService {
@@ -15,13 +14,8 @@ export class SurveyService {
   ) { }
 
   async create(createSurveyDto: CreateSurveyDto): Promise<Survey> {
-    const participationId = uuid();
-    const resultId = uuid();
-
     const mappedSurvey = this.surveyMapper.fromCreateDtoToEntity(
-      createSurveyDto,
-      participationId,
-      resultId,
+      createSurveyDto
     );
 
     const createdSurvey = await this.surveyRepository.create(

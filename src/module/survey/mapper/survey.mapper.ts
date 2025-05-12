@@ -6,14 +6,10 @@ import { Survey } from "../entity/survey.entity";
 export class SurveyMapper {
   fromCreateDtoToEntity(
     createSurveyDto: CreateSurveyDto,
-    participationId: string,
-    resultId: string
   ): Survey {
     const survey = new Survey();
 
     survey.title = createSurveyDto.title;
-    survey.participationId = participationId;
-    survey.resultId = resultId; 
 
     return survey;
   }

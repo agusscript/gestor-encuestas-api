@@ -14,12 +14,6 @@ export class Survey {
   @Column()
   title: string;
 
-  @Column({ unique: true })
-  participationId: string;
-
-  @Column({ unique: true })
-  resultId: string;
-
   @OneToMany(() => Question, q => q.survey, {
     cascade: true,
   })
