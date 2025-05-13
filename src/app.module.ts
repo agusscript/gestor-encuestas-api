@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { datasourceOptions } from './config/orm.config';
 import { SurveyModule } from './module/survey/survey.module';
 import { QuestionModule } from './module/question/question.module';
+import { AnswerModule } from './module/answer/answer.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { QuestionModule } from './module/question/question.module';
     }),
     SurveyModule,
     QuestionModule,
+    AnswerModule
   ],
   controllers: [],
   providers: [],
