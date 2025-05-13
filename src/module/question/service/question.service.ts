@@ -12,6 +12,10 @@ export class QuestionService {
     private readonly questionMapper: QuestionMapper,
   ) { }
 
+  async findOneById(id: string): Promise<Question> {
+    return await this.questionRepository.findOneById(id);
+  }
+
   async create(
     createQuestionDto: CreateQuestionDto,
     survey: Survey
