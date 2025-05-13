@@ -1,6 +1,7 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { Survey } from "src/module/survey/entity/survey.entity";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { QuestionType } from "../enum/question-type.enum";
+import { Survey } from "src/module/survey/entity/survey.entity";
+import { Answer } from "src/module/answer/entity/answer.entity";
 
 @Entity({ name: "question" })
 export class Question {
@@ -13,12 +14,17 @@ export class Question {
   @Column({ type: "enum", enum: QuestionType })
   type: QuestionType;
 
+  @Column("simple-array", { nullable: true })
+  options: string[];
+
   @ManyToOne(() => Survey, s => s.questions, {
     nullable: false,
     onDelete: "CASCADE",
   })
   survey: Survey;
 
-  @Column("simple-array", { nullable: true })
-  options: string[];
+  @OneToMany(() => Answer, a => a.question, {
+    cascade: true,
+  })
+  answers: Answer[];
 }
