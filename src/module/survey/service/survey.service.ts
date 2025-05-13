@@ -13,6 +13,10 @@ export class SurveyService {
     private readonly questionService: QuestionService,
   ) { }
 
+  async findOneById(id: string): Promise<Survey> {
+    return await this.surveyRepository.findOneById(id);
+  }
+
   async create(createSurveyDto: CreateSurveyDto): Promise<Survey> {
     const mappedSurvey = this.surveyMapper.fromCreateDtoToEntity(
       createSurveyDto

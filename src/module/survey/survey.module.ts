@@ -18,6 +18,6 @@ import { QuestionModule } from "../question/question.module";
     SurveyRepository,
     SurveyMapper,
   ],
-  exports: []
+  exports: [SurveyService]
 })
 export class SurveyModule { }
