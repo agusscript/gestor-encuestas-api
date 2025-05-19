@@ -10,7 +10,7 @@ export class QuestionRepository {
     private readonly repository: Repository<Question>
   ) { }
 
-  async findOneById(id: string): Promise<Question> {
+  async findOneById(id: number): Promise<Question> {
     const question = await this.repository.findOne({
       where: { id },
       relations: { survey: true }

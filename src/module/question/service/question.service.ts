@@ -12,7 +12,7 @@ export class QuestionService {
     private readonly questionMapper: QuestionMapper,
   ) { }
 
-  async findOneById(id: string): Promise<Question> {
+  async findOneById(id: number): Promise<Question> {
     return await this.questionRepository.findOneById(id);
   }
 
