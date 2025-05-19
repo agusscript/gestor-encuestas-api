@@ -1,12 +1,11 @@
-import { IsArray, IsNotEmpty, IsNumber, ValidateNested } from "class-validator";
-import { Transform, Type } from "class-transformer";
+import { IsArray, IsNotEmpty, IsUUID, ValidateNested } from "class-validator";
+import { Type } from "class-transformer";
 import { CreateSingleAnswerDto } from "src/module/answer/dto/create-single-answer.dto";
 
 export class CreateAnswerDto {
-  @IsNumber()
+  @IsUUID("4")
   @IsNotEmpty()
-  @Transform(({ value }) => Number(value))
-  surveyId: number;
+  participationId: string;
 
   @IsArray()
   @ValidateNested({ each: true })

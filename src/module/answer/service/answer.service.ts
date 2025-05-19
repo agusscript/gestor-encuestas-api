@@ -21,10 +21,12 @@ export class AnswerService {
   async create(
     createAnswerDto: CreateAnswerDto,
   ): Promise<Answer[]> {
-    const { surveyId, answers } = createAnswerDto;
+    const { participationId, answers } = createAnswerDto;
     const createdAnswers: Answer[] = [];
 
-    const survey = await this.surveyService.findOneById(surveyId);
+    const survey = await this.surveyService.findOneByParticipationId(
+      participationId
+    );
 
     for (const singleAnswerDto of answers) {
       const answer = await this.createSingle(

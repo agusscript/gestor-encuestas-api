@@ -10,19 +10,6 @@ export class SurveyRepository {
     private readonly repository: Repository<Survey>
   ) { }
 
-  async findOneById(id: number): Promise<Survey> {
-    const survey = await this.repository.findOne({
-      where: { id },
-      relations: { questions: true }
-    });
-
-    if (!survey) {
-      throw new NotFoundException(`Survey with ID ${id} not found`);
-    }
-
-    return survey;
-  }
-
   async findOneByParticipationId(
     participationId: string
   ): Promise<Survey> {
