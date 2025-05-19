@@ -3,8 +3,8 @@ import { Question } from "src/module/question/entity/question.entity";
 
 @Entity({ name: "survey" })
 export class Survey {
-  @PrimaryGeneratedColumn("uuid")
-  id: string;
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @Column()
   title: string;
