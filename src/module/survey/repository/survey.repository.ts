@@ -15,6 +15,9 @@ export class SurveyRepository {
   ): Promise<Survey> {
     const survey = await this.repository.findOne({
       where: { participationId },
+      relations: {
+        questions: true
+      }
     });
 
     if (!survey) {
