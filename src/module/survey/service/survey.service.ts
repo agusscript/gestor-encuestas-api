@@ -17,6 +17,22 @@ export class SurveyService {
     return await this.surveyRepository.findOneById(id);
   }
 
+  async findOneByParticipationId(
+    participationId: string
+  ): Promise<Survey> {
+    return await this.surveyRepository.findOneByParticipationId(
+      participationId
+    );
+  }
+
+  async findOneByVisualizationId(
+    visualizationId: string
+  ): Promise<Survey> {
+    return await this.surveyRepository.findOneByVisualizationId(
+      visualizationId
+    );
+  }
+
   async create(createSurveyDto: CreateSurveyDto): Promise<Survey> {
     const mappedSurvey = this.surveyMapper.fromCreateDtoToEntity(
       createSurveyDto
