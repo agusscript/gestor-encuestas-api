@@ -1,9 +1,11 @@
-import { ArrayMinSize, IsArray, IsNotEmpty, IsOptional, IsString, IsUUID, MaxLength, MinLength, ValidateIf } from "class-validator";
+import { ArrayMinSize, IsArray, IsNotEmpty, IsNumber, IsOptional, IsString, MaxLength, MinLength, ValidateIf } from "class-validator";
+import { Transform } from "class-transformer";
 
 export class CreateSingleAnswerDto {
-  @IsUUID("4")
+  @IsNumber()
   @IsNotEmpty()
-  questionId: string;
+  @Transform(({ value }) => Number(value))
+  questionId: number;
 
   @IsString()
   @IsOptional()

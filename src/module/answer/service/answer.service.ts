@@ -38,7 +38,7 @@ export class AnswerService {
   }
 
   private async createSingle(
-    surveyId: string,
+    surveyId: number,
     createSingleAnswerDto: CreateSingleAnswerDto,
   ): Promise<Answer> {
     const question = await this.questionService.findOneById(
