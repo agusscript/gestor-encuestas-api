@@ -29,7 +29,7 @@ Create surveys with questions and answers.
 ## Prerequisites (important)
 
 - [Node >= 20](https://github.com/nvm-sh/nvm) | This project was developed using node version `20.18.3`
-- [Docker](https://docs.docker.com/engine/install/) | You will need to have Docker installed to be able to launch the database (MySQL).
+- [Docker](https://docs.docker.com/engine/install/) | You will need to have Docker installed to be able to launch the database (PostgreSQL).
 
 ## Project setup
 
