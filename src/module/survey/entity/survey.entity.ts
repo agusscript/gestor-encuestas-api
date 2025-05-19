@@ -9,6 +9,20 @@ export class Survey {
   @Column()
   title: string;
 
+  @Column({
+    type: "uuid",
+    nullable: false,
+    default: () => "uuid_generate_v4()"
+  })
+  participationId: string;
+
+  @Column({
+    type: "uuid",
+    nullable: false,
+    default: () => "uuid_generate_v4()"
+  })
+  visualizationId: string;
+
   @OneToMany(() => Question, q => q.survey, {
     cascade: true,
   })
