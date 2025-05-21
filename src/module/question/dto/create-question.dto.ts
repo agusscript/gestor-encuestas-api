@@ -14,8 +14,8 @@ export class CreateQuestionDto {
 
   @ValidateIf(o => o.type !== QuestionType.OPEN)
   @IsArray()
-  @ArrayMinSize(1, {
-    message: 'options must contain at least one option'
+  @ArrayMinSize(2, {
+    message: 'options must contain at least two items',
   })
   @IsString({ each: true })
   options?: string[];
