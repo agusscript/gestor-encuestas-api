@@ -10,6 +10,10 @@ export class SurveyRepository {
     private readonly repository: Repository<Survey>
   ) { }
 
+  async findAll(): Promise<Survey[]> {
+    return await this.repository.find();
+  }
+
   async findOneByParticipationId(
     participationId: string
   ): Promise<Survey> {

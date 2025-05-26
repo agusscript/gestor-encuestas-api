@@ -14,6 +14,10 @@ export class SurveyService {
     private readonly questionService: QuestionService,
   ) { }
 
+  async findAll(): Promise<Survey[]> {
+    return await this.surveyRepository.findAll();
+  }
+
   async findOneByParticipationId(
     participationId: string
   ): Promise<Survey> {

@@ -7,6 +7,11 @@ import { CreateSurveyDto } from "../dto/create-survey.dto";
 export class SurveyController {
   constructor(private readonly surveyService: SurveyService) { }
 
+  @Get()
+  async findAll(): Promise<Survey[]> {
+    return this.surveyService.findAll();
+  }
+
   @Get("participation/:id")
   async findOneByParticipationId(
     @Param("id", ParseUUIDPipe) id: string
