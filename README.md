@@ -68,3 +68,7 @@ npm run start
 # watch mode
 npm run start:dev
 ```
+
+## Entity Relationship Diagram
+
+![](public/gestor-encuestas-erd.jpg)
