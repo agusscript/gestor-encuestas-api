@@ -2,6 +2,9 @@ import * as dotenv from 'dotenv';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 import { ENVIRONMENT } from './environment.enum';
+import { Question } from 'src/module/question/entity/question.entity';
+import { Survey } from 'src/module/survey/entity/survey.entity';
+import { Answer } from 'src/module/answer/entity/answer.entity';
 
 dotenv.config();
 
@@ -43,5 +46,6 @@ export const datasourceOptions: DataSourceOptions = (() => {
 
 export default new DataSource({
   ...datasourceOptions,
-  entities: ['./src/**/entity/*.entity.ts'],
+  entities: [Question, Survey, Answer],
+  migrations: ['./migrations/**/*.ts']
 });
