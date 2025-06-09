@@ -149,7 +149,7 @@ export class AddSurveySeed1749170641677 implements MigrationInterface {
 
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
-      DELETE FROM "answer" WHERE "questionId" IN (
+      DELETE FROM "answer" WHERE "question_id" IN (
         SELECT id FROM "question" WHERE "survey_id" IN (
           SELECT id FROM "survey" WHERE "title" IN (
             'Encuesta sobre hábitos de estudio',
