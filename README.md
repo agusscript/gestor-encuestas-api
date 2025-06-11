@@ -59,6 +59,12 @@ SWAGGER_ENABLED=
 docker compose up -d
 ```
 
+## Run migrations to create tables with data (seed)
+
+```sh
+npm run migration:run
+```
+
 ## Compile and run the project
 
 ```sh
